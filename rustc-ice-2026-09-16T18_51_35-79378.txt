@@ -1,0 +1,28 @@
+thread 'main' panicked at /rustc-dev/8925ea358a0f265ca61026aadc7ecc506c545cbe/compiler/rustc_driver_impl/src/lib.rs:1660:6:
+Unable to install ctrlc handler: System(Os { code: 11, kind: WouldBlock, message: "Resource temporarily unavailable" })
+stack backtrace:
+   0:     0x76d6750a3d15 - <std[b8564071bfb80320]::backtrace::Backtrace>::create
+   1:     0x76d6750a3c65 - <std[b8564071bfb80320]::backtrace::Backtrace>::force_capture
+   2:     0x76d674036dde - std[b8564071bfb80320]::panicking::update_hook::<alloc[1fd94160f0f4009f]::boxed::Box<rustc_driver_impl[f578478d149be60]::install_ice_hook::{closure#1}>>::{closure#0}
+   3:     0x76d6750b9b42 - std[b8564071bfb80320]::panicking::panic_with_hook
+   4:     0x76d675098742 - std[b8564071bfb80320]::panicking::panic_handler::{closure#0}
+   5:     0x76d6750903a9 - std[b8564071bfb80320]::sys::backtrace::__rust_end_short_backtrace::<std[b8564071bfb80320]::panicking::panic_handler::{closure#0}, !>
+   6:     0x76d67509a14d - __rustc[f325e6f53f8e9f03]::rust_begin_unwind
+   7:     0x76d671ccb57c - core[b218925afaf52552]::panicking::panic_fmt
+   8:     0x76d6714efba2 - core[b218925afaf52552]::result::unwrap_failed
+   9:     0x76d6767caefc - rustc_driver_impl[f578478d149be60]::install_ctrlc_handler
+  10:     0x76d6767cb3f1 - rustc_driver_impl[f578478d149be60]::main
+  11:     0x5d84b8dba3a3 - std[b8564071bfb80320]::sys::backtrace::__rust_begin_short_backtrace::<fn() -> std[b8564071bfb80320]::process::ExitCode, std[b8564071bfb80320]::process::ExitCode>
+  12:     0x5d84b8dba399 - <std[b8564071bfb80320]::rt::lang_start<std[b8564071bfb80320]::process::ExitCode>::{closure#0} as core[b218925afaf52552]::ops::function::FnOnce<()>>::call_once::{shim:vtable#0}
+  13:     0x76d676bbf2cc - std[b8564071bfb80320]::rt::lang_start_internal
+  14:     0x5d84b8df92b7 - main
+  15:     0x76d66fe2a1ca - __libc_start_call_main
+                               at ./csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+  16:     0x76d66fe2a28b - __libc_start_main_impl
+                               at ./csu/../csu/libc-start.c:360:3
+  17:     0x5d84b8df91c6 - <unknown>
+  18:                0x0 - <unknown>
+
+
+rustc version: 1.100.0-nightly (8925ea358 2026-08-20)
+platform: x86_64-unknown-linux-gnu

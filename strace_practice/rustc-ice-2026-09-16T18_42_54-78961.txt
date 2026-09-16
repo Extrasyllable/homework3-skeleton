@@ -1,0 +1,31 @@
+thread 'rustc' panicked at /rustc-dev/8925ea358a0f265ca61026aadc7ecc506c545cbe/compiler/rustc_codegen_ssa/src/back/write.rs:1276:14:
+failed to spawn helper thread: Os { code: 11, kind: WouldBlock, message: "Resource temporarily unavailable" }
+stack backtrace:
+   0:     0x7fb5e16a3d15 - <std[b8564071bfb80320]::backtrace::Backtrace>::create
+   1:     0x7fb5e16a3c65 - <std[b8564071bfb80320]::backtrace::Backtrace>::force_capture
+   2:     0x7fb5e0636dde - std[b8564071bfb80320]::panicking::update_hook::<alloc[1fd94160f0f4009f]::boxed::Box<rustc_driver_impl[f578478d149be60]::install_ice_hook::{closure#1}>>::{closure#0}
+   3:     0x7fb5e16b9b42 - std[b8564071bfb80320]::panicking::panic_with_hook
+   4:     0x7fb5e1698742 - std[b8564071bfb80320]::panicking::panic_handler::{closure#0}
+   5:     0x7fb5e16903a9 - std[b8564071bfb80320]::sys::backtrace::__rust_end_short_backtrace::<std[b8564071bfb80320]::panicking::panic_handler::{closure#0}, !>
+   6:     0x7fb5e169a14d - __rustc[f325e6f53f8e9f03]::rust_begin_unwind
+   7:     0x7fb5de2cb57c - core[b218925afaf52552]::panicking::panic_fmt
+   8:     0x7fb5ddaefba2 - core[b218925afaf52552]::result::unwrap_failed
+   9:     0x7fb5e2e73ec4 - rustc_codegen_ssa[6aa05fb22a8957d5]::base::codegen_crate::<rustc_codegen_llvm[86735bea391a969]::LlvmCodegenBackend, rustc_codegen_llvm[86735bea391a969]::ModuleLlvm>
+  10:     0x7fb5e2e717cc - <rustc_codegen_llvm[86735bea391a969]::LlvmCodegenBackend as rustc_codegen_ssa[6aa05fb22a8957d5]::traits::backend::CodegenBackend>::codegen_crate
+  11:     0x7fb5e314db8c - <rustc_interface[4089758db528eb1a]::queries::Linker>::codegen_and_build_linker
+  12:     0x7fb5e314448a - rustc_interface[4089758db528eb1a]::interface::run_compiler::<(), rustc_driver_impl[f578478d149be60]::run_compiler::{closure#0}>::{closure#2}
+  13:     0x7fb5e31c1e64 - std[b8564071bfb80320]::sys::backtrace::__rust_begin_short_backtrace::<rustc_interface[4089758db528eb1a]::util::run_in_thread_with_globals<rustc_interface[4089758db528eb1a]::util::run_in_thread_pool_with_globals<rustc_interface[4089758db528eb1a]::interface::run_compiler<(), rustc_driver_impl[f578478d149be60]::run_compiler::{closure#0}>::{closure#2}, ()>::{closure#0}, ()>::{closure#0}::{closure#0}, ()>
+  14:     0x7fb5e31c1c2d - <std[b8564071bfb80320]::thread::lifecycle::spawn_unchecked<rustc_interface[4089758db528eb1a]::util::run_in_thread_with_globals<rustc_interface[4089758db528eb1a]::util::run_in_thread_pool_with_globals<rustc_interface[4089758db528eb1a]::interface::run_compiler<(), rustc_driver_impl[f578478d149be60]::run_compiler::{closure#0}>::{closure#2}, ()>::{closure#0}, ()>::{closure#0}::{closure#0}, ()>::{closure#1} as core[b218925afaf52552]::ops::function::FnOnce<()>>::call_once::{shim:vtable#0}
+  15:     0x7fb5e31bf907 - <std[b8564071bfb80320]::sys::thread::unix::Thread>::new::thread_start
+  16:     0x7fb5dc49cb84 - start_thread
+                               at ./nptl/pthread_create.c:447:8
+  17:     0x7fb5dc529ecc - clone3
+                               at ./misc/../sysdeps/unix/sysv/linux/x86_64/clone3.S:78:0
+  18:                0x0 - <unknown>
+
+
+rustc version: 1.100.0-nightly (8925ea358 2026-08-20)
+platform: x86_64-unknown-linux-gnu
+
+query stack during panic:
+end of query stack
